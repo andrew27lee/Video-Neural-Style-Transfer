@@ -1,0 +1,142 @@
+/* Home Page */
+
+.homeBody {
+    margin: 0;
+    padding: 20px;
+    background-color: whitesmoke;
+    background-size: cover;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.homeHeader {
+    padding: 30px;
+    text-align: center;
+    background-image: url('../images/misc/dark_background.jpg');
+    background-blend-mode: multiply;
+    background-size: cover;
+    font-size: 24px;
+    font-family: Verdana;
+    color: gold;
+}
+
+.homeRow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.leftColumn { 
+    float: left;
+    width: 74%;
+}
+
+.rightColumn {
+    float: left;
+    width: 24%;
+    padding-left: 20px;
+}
+
+.halfColumn {
+    float: inline-start;
+    width: 50%;
+}
+
+@media screen and (max-width: 1050px) {
+    .leftColumn, .rightColumn { 
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.homeSection {
+    font-size: 24px;
+    font-family: Verdana;
+    color: darkviolet;
+}
+
+.homeText {
+    text-align: left;
+    font-size: 14px;
+    font-family: Verdana;
+    line-height: 26px;
+}
+
+.exampleText {
+    font-size: 14px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.homeIMGVideo {
+    max-width: 100%;
+    width: 550px;
+    height: 325px;
+}
+
+.homeIMGSequence {
+    max-width: 100%;
+    width: 850px;
+    height: 325px;
+}
+
+.homeIMGStyle {
+    max-width: 100%;
+    width: 300px;
+    height: 200px;
+}
+
+.projectInfoHome {
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: none;
+    color: black;
+}
+
+.homeLinks:link {
+    color: black;
+    background-color: transparent; 
+    text-decoration: underline;
+}
+
+.homeLinks:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.homeLinks:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.homeLinks:after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 1px;
+}
+
+#submitButton {
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: gold;
+    border-radius: 5px;
+    border: 1px solid gold;
+    border-width: 1px 1px 1px 1px;
+    padding: 7px 15px 7px 15px;
+    color: darkviolet;
+    font-size: 16px;
+    font-family: Verdana;
+    font-weight: bold;
+}

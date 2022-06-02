@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Neural Style Transfer - Video</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+
+    <body class="homeBody" id="homeContent">
+        <div class="homeHeader">
+            <h1>Neural Style Transfer for Videos</h1>
+        </div>
+        <div class="homeRow">
+            <div class="leftColumn">
+                <div class="card">
+                    <h2 class="homeSection">Introduction</h2>
+                    <p class="homeText">This project extends the Neural Style Transfer image 
+                        processing technique to video by generating smooth transitions between 
+                        a sequence of reference style images across video frames. The generated 
+                        output video is a highly altered, artistic representation of the input 
+                        video consisting of constantly changing abstract patterns and colors 
+                        that emulate the original content of the video. The user's choice of
+                        style images and style sequence allows for infinite user experimentation 
+                        and the creation of an endless range of artistically interesting videos.</p>
+                </div>
+                <div class="card">
+                    <h2 class="homeSection">Examples</h2>
+                    <h3 class="exampleText">Original</h3>
+                    <img src="../static/videos/input/example.gif" class="homeIMGVideo"/>
+                    <h3 class="homeText">Style Sequence</h3>
+                    <img src="../static/images/misc/example_sequence.png" class="homeIMGSequence"/>
+                    <h3 class="homeText">Result</h3>
+                    <img src="../static/videos/output/example.gif" class="homeIMGVideo"/>
+                    <h3 class="homeText">Result With Preserved Color</h3>
+                    <img src="../static/videos/output/example_pc.gif" class="homeIMGVideo"/>
+                </div>
+                <div class="card">
+                    {% if index %}
+                    <h2 class="homeSection">Try It Out</h2>
+                    <center>
+                        <form name="inputForm" id="inputForm" method="POST" action="/transfer" enctype="multipart/form-data">
+                            <div class="homeRow">
+                                <div class="halfColumn">
+                                    <label for="file">Content:</label>
+                                    <input type="file" name="content" accept=".mov,.mp4">
+                                    <p></p>
+                                    <label for="file">Preserve Original Color</label>
+                                    <input type="checkbox" name="preserve_color">
+                                </div>
+                                <div class="halfColumn">
+                                    <label for="file">Style 1:</label>
+                                    <input type="file" name="style1" accept=".jpg,.jpeg,.png">
+                                    <p></p>
+                                    <label for="file">Style 2:</label>
+                                    <input type="file" name="style2" accept=".jpg,.jpeg,.png">
+                                    <p></p>
+                                    <label for="file">Style 3:</label>
+                                    <input type="file" name="style3" accept=".jpg,.jpeg,.png">
+                                </div>
+                            </div>
+                            <p></p>
+                            <button name="submitButton" id="submitButton" type="submit" onclick="submit()">Transfer</button>
+                        </form>
+                    </center>
+                    {% elif transfer %}
+                    <h2 class="homeSection">Outcome</h2>
+                    <center>
+                        <video width="550px" height="325px" autoplay loop>
+                            <source src="../static/videos/output/output.mp4" type="video/mp4">
+                        </video>
+                        <p></p>
+                        <a class="homeLinks" href="{{ url_for('index') }}">Try Again</a>
+                    </center>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="rightColumn">
+                <div class="card">
+                    <h2 class="homeSection">Sample Styles</h2>
+                    <p class="homeText">Click on any of the following sample styles to download</p>
+                    <a class="homeLinks" href="../static/images/misc/style4.jpg" download>
+                        <img src="../static/images/misc/style4.jpg" class="homeIMGStyle"/>
+                    </a>
+                    <a class="homeLinks" href="../static/images/misc/style1.png" download>
+                        <img src="../static/images/misc/style1.png" class="homeIMGStyle"/>
+                    </a>
+                    <a class="homeLinks" href="../static/images/misc/style3.png" download>
+                        <img src="../static/images/misc/style3.png" class="homeIMGStyle"/>
+                    </a>
+                    <a class="homeLinks" href="../static/images/misc/style2.png" download>
+                        <img src="../static/images/misc/style2.png" class="homeIMGStyle"/>
+                    </a>
+                </div>
+                <div class="card">
+                    <h2 class="homeSection">References</h2>
+                    <div class="projectInfoHome">
+                        <a class="homeLinks" href="https://github.com/andrew27lee/Video-Neural-Style-Transfer">Github</a>
+                        <a class="homeLinks" href="https://ainize.ai/andrew27lee/Video-Neural-Style-Transfer">Ainize</a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <script>
+        </script>
+    </body>
+</html>
