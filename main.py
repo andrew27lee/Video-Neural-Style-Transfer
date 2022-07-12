@@ -194,19 +194,22 @@ def transfer_outcome():
     style_3 = request.files['style3']
 
     if content.filename == '' or style_1.filename == '' or style_2.filename == '' or style_3.filename == '':
-        return render_template('index.html', error='Input file(s) not selected.')
+        return render_template('index.html', index=True)
 
     content.save(os.path.join(app.root_path, CONTENT_PATH))
     style_1.save(os.path.join(app.root_path, STYLE_1_PATH))
     style_2.save(os.path.join(app.root_path, STYLE_2_PATH))
     style_3.save(os.path.join(app.root_path, STYLE_3_PATH))
 
-    if request.form.get('preserve_color'):
-        StyleFrame().run(True)
-    else:
-        StyleFrame().run(False)
-    
-    return render_template('index.html', transfer=True)
+    try:
+        if request.form.get('preserve_color'):
+            StyleFrame().run(True)
+        else:
+            StyleFrame().run(False)
+        
+        return render_template('index.html', transfer=True)
+    except:
+        return render_template('index.html', index=True)
 
 
 @app.route('/', methods=['GET'])
